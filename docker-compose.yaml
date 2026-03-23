@@ -1,0 +1,17 @@
+services:
+  review_agent:
+    container_name: ft_review
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      # ホスト側の ./target ディレクトリをコンテナの /app/target にマウント
+      - ./target:/app/target
+      # instructions.md を直接マウント
+      - ./instructions.md:/app/instructions.md:ro
+    env_file:
+      - .env
+    # リッチコンソールのカラー表示用
+    tty: true
+    # --path target でコンテナ内の /app/target を基準とし、--folders なしで再帰スキャンを実行
+    command: ["--type", ".cpp", ".hpp"]

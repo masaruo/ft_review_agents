@@ -6,6 +6,8 @@ RUN apt-get update && apt-get install -y \
     make \
     build-essential \
     clang \
+    cmake \
+    git \
     valgrind \
     && rm -rf /var/lib/apt/lists/*
 
