@@ -6,7 +6,7 @@ all: help
 
 # Build the Docker container using docker compose
 build:
-	docker compose --build
+	docker compose up
 
 FILE_TYPE ?= .cpp .hpp
 FOLDERS ?= 
